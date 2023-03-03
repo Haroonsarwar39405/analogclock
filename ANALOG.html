@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>analog clock</title>
+<style>
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.circle{
+    height: 20vw;
+    width: 20vw;
+    border-radius: 50%;
+    margin:  100px auto;
+    position: relative;
+    
+
+}
+.circle img{
+    height: 100%;
+    width: 100%;
+}
+.second{
+    height: 2px;
+    width: 50%;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+}
+.third{
+    height: 2px;
+    width: 50%;
+    background-color: blue;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+}
+.fourth{
+    height: 2px;
+    width: 50%;
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    
+    transform-origin: 100%;
+}
+
+
+</style>
+</head>
+
+<body>
+    
+        <div class="circle">
+            <img src="./AibKK558T.gif" alt="">
+            <div class="second"></div>
+            <div class="third"></div>
+            <div class="fourth"></div>
+        </div>
+    
+    <script>
+        var sec=0;
+        var mint=0;
+        var hours=0
+        var second=document.querySelector('.second')
+        var third=document.querySelector('.third')
+        var fourth=document.querySelector('.fourth')
+        setInterval(()=>{
+            var date=new Date()
+            var sec=date.getSeconds()
+            var mint=date.getMinutes()
+            var hours=date.getHours()+mint/60
+            sec=sec*6+90
+            mint=mint*6+90
+            hours=hours*30+90
+            second.style.transform=`rotate(${sec}deg)`
+            third.style.transform=`rotate(${mint}deg)` 
+            fourth.style.transform=`rotate(${hours}deg)`
+        },1000);
+
+   
+    </script>
+</body>
+</html>
